@@ -33,3 +33,12 @@ void User::update(const string &listName) {
 const map<string, shared_ptr<ShoppingList>>& User::getMyLists() const {
     return myLists;
 }
+
+bool User::hasList(const string &name) {
+    auto itr = myLists.begin();
+    while(itr != myLists.end()){
+        if(itr->first == name) return true;
+        ++itr;
+    }
+    return false;
+}

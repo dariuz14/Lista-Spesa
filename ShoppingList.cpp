@@ -110,3 +110,11 @@ void ShoppingList::printNotBought() {
         }
     }
 }
+
+void ShoppingList::printList() {
+    std::map<std::string, shared_ptr<Product>>:: iterator itr;
+    for(itr = shoppingList.begin(); itr != shoppingList.end(); ++itr){
+        cout << "Product: " << itr->first << ", quantity: " << itr->second->getQuantity() << endl;
+    }
+
+}

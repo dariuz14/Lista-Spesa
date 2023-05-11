@@ -17,7 +17,7 @@ class ShoppingList: public Subject{
 public:
     ShoppingList(const string& shoppingListName): listName(shoppingListName){}
 
-    virtual ~ShoppingList() = default;
+    ~ShoppingList() override = default;
 
     void subscribe(Observer *o) override;
 
@@ -30,13 +30,14 @@ public:
     void setBought(const string& name);
     int countNotBought();
     void printNotBought();
+    void printList();
 
     const string &getListName() const {
         return ShoppingList::listName;
     }
 
-    void setListName(const string &listName) {
-        ShoppingList::listName = listName;
+    void setListName(const string& name) {
+        ShoppingList::listName = name;
     }
 
     const map<string, shared_ptr<Product>> &getShoppingList() const {

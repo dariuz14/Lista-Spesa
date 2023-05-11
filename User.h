@@ -15,7 +15,7 @@ using namespace std;
 
 class User: public Observer{
 public:
-    virtual ~User(){
+    ~User() override {
         for(auto &itr:myLists){
             itr.second->unsubscribe(this);
         }
@@ -23,8 +23,8 @@ public:
     void update(const string& listName) override;
     void addShoppingList(ShoppingList& shoppingList);
     void removeShoppingList(const string& name);
+    bool hasList(const string& name);
     const map<string, shared_ptr<ShoppingList>>& getMyLists() const;
-
 
 private:
     map<std::string, shared_ptr<ShoppingList>> myLists;
