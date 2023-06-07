@@ -23,7 +23,7 @@ public:
     void update(const string& listName) override;
     void addShoppingList(ShoppingList& shoppingList);
     void removeShoppingList(const string& name);
-    bool hasList(const string& name);
+    bool hasList(const string& name) const;
     const map<string, shared_ptr<ShoppingList>>& getMyLists() const;
 
 private:

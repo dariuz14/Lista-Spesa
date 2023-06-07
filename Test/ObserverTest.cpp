@@ -28,10 +28,10 @@ protected:
 
     bool updated = false;
     ShoppingList s{"spesa"};
-    Product p{"pane", "farinaggi", 1};
 };
 
 TEST_F(ObserverTest, TestUpdate){
+    Product p{"pane", "farinaggi", 1};
     ASSERT_FALSE(isUpdated());
     s.addProduct(p);
     ASSERT_TRUE(isUpdated());

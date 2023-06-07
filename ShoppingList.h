@@ -28,8 +28,8 @@ public:
     void addProduct(const Product& product);
     void removeProduct(const string& name);
     void setBought(const string& name);
-    int countNotBought();
-    void printNotBought();
+    int countNotBought() const;
+    void printNotBought() const;
     void printList();
 
     const string &getListName() const {

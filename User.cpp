@@ -34,7 +34,7 @@ const map<string, shared_ptr<ShoppingList>>& User::getMyLists() const {
     return myLists;
 }
 
-bool User::hasList(const string &name) {
+bool User::hasList(const string &name) const{
     auto itr = myLists.begin();
     while(itr != myLists.end()){
         if(itr->first == name) return true;

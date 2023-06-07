@@ -75,7 +75,7 @@ void ShoppingList::setBought(const string &name) {
     }
 }
 
-int ShoppingList::countNotBought() {
+int ShoppingList::countNotBought() const {
     int result = 0;
     for(auto &itr: shoppingList){
         if(!itr.second->isBought()){
@@ -85,7 +85,7 @@ int ShoppingList::countNotBought() {
     return result;
 }
 
-void ShoppingList::printNotBought() {
+void ShoppingList::printNotBought() const {
     int result = 0;
     cout << "Products to buy: "<< endl;
     string c;

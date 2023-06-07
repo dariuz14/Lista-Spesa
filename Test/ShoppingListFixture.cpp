@@ -19,6 +19,7 @@ protected:
     Product p1{"mela", "frutta", 1};
     Product p2{"latte", "latticini", 2};
     Product p3{"pane", "farinaggi", 1};
+    Product p{"acqua", "bibita", 1};
     User user;
 };
 
@@ -48,11 +49,14 @@ TEST_F(ShoppingListSuite, TestRemoveProduct){
     s.removeProduct("mela");
     int size = s.getShoppingList().size();
     ASSERT_EQ(size, 2);
+    ASSERT_THROW(s.removeProduct("acqua"), invalid_argument);
 };
 
 TEST_F(ShoppingListSuite, TestSetBought){
     s.setBought("latte");
     ASSERT_EQ(s.countNotBought(), 2);
+    s.setBought("mela");
+    ASSERT_EQ(s.countNotBought(), 1);
 };
 
 TEST_F(ShoppingListSuite, TestSubject){
@@ -64,4 +68,6 @@ TEST_F(ShoppingListSuite, TestSubject){
 
 TEST_F(ShoppingListSuite, TestCountNotBought){
     ASSERT_EQ(s.countNotBought(), 4);
+    s.setBought("mela");
+    ASSERT_EQ(s.countNotBought(), 3);
 };
